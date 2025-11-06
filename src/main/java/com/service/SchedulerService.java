@@ -4,6 +4,7 @@ import com.dto.*;
 import com.entity.Scheduler;
 import com.repository.SchedulerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,8 +27,8 @@ public class SchedulerService {
         // Entity에 리퀘스트 dto 넣기
         Scheduler schedule = new Scheduler(
                 request.getTitle(),
-                request.getWriter(),
                 request.getContent(),
+                request.getWriter(),
                 request.getPassword()
         );
         Scheduler savedSchedule = schedulerRepository.save(schedule);
@@ -66,8 +67,28 @@ public class SchedulerService {
 
     // ---------------------------------------- 다건 조회 - GET ----------------------------------------
     @Transactional(readOnly = true)
+//    public List<GetScheduleResponse> getAllWritersSchedules(String writer) {
+//        List<Scheduler> schedules = schedulerRepository.findAllByWriter(writer);
+//
+//        return schedules.stream()
+//                .map(s -> new GetScheduleResponse(
+//                        s.getId(),
+//                        s.getTitle(),
+//                        s.getWriter(),
+//                        s.getContent(),
+//                        s.getCreatedAt(),
+//                        s.getUpdatedAt()
+//                ))
+//                .toList();
+//    }
     public List<GetScheduleResponse> getAllWritersSchedules(String writer) {
-        List<Scheduler> schedules = schedulerRepository.findAllByWriter(writer);
+        List<Scheduler> schedules;
+
+        if (writer == null || writer.isBlank()) { // 전체 일정 최신순 조회
+            schedules = schedulerRepository.findAll(Sort.by(Sort.Direction.DESC, "updatedAt"));
+        } else { // 특정 작성자 일정 최신순 조회
+            schedules = schedulerRepository.findAllByWriterOrderByUpdatedAtDesc(writer);
+        }
 
         return schedules.stream()
                 .map(s -> new GetScheduleResponse(
@@ -80,6 +101,7 @@ public class SchedulerService {
                 ))
                 .toList();
     }
+
 
     // ---------------------------------------- 수정 - PUT ----------------------------------------
     @Transactional

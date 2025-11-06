@@ -31,11 +31,16 @@ public class SchedulerController {
     }
     
     // ---------------------------------------- 일정 다건 조회 (작성자명을 기준) - GET ----------------------------------------
-    @GetMapping("/scheduler")
-    public ResponseEntity<List<GetScheduleResponse>> getAllWritersSchedules(@RequestParam String writer) {
-        return ResponseEntity.status(HttpStatus.OK).body(schedulerService.getAllWritersSchedules(writer));
+//    @GetMapping("/scheduler")
+//    public ResponseEntity<List<GetScheduleResponse>> getAllWritersSchedules(@RequestParam String writer) {
+//        return ResponseEntity.status(HttpStatus.OK).body(schedulerService.getAllWritersSchedules(writer));
+//    }
+    @GetMapping("/scheduler")   // Get요청 + 쿼리 파라미터 방식 : GET http://localhost:8080/scheduler?writer=홍길동
+    public ResponseEntity<List<GetScheduleResponse>> getAllWritersSchedules(@RequestParam(required = false) String writer) {
+        return ResponseEntity.ok(schedulerService.getAllWritersSchedules(writer));
     }
-    
+
+
     // ---------------------------------------- 일정 수정 - PUT ----------------------------------------
     @PutMapping("/scheduler/{scheduleId}")
     public ResponseEntity<UpdateScheduleResponse> updateSchedule(@PathVariable Long scheduleId, @RequestBody UpdateScheduleRequest request) {
