@@ -1,14 +1,20 @@
-📘 Scheduler Project API 명세서
+# 📘 Scheduler Project API 명세서
 
 프로젝트명 : Scheduler Project
+
 개발 환경 : Spring Boot 3.5.7, Java 17, MySQL 8, IntelliJ
+
 주요 기술 스택 : Spring Web / Spring Data JPA / Lombok / MySQL
+
 테스트 툴 : Postman
 
+
 ---
 ---
 
-🗂️ 디렉터리 구조
+
+## 🗂️ 디렉터리 구조
+
 
 ```
 schedulerProject/
@@ -28,10 +34,12 @@ schedulerProject/
 └── README.md
 ```
 
+
 ---
 
-🧱 ERD (Entity Relationship Diagram)
+## 🧱 ERD (Entity Relationship Diagram)
 
+```
 erDiagram
     SCHEDULER {
         BIGINT id PK
@@ -42,10 +50,11 @@ erDiagram
         DATETIME created_at
         DATETIME updated_at
     }
+```
 
 ---
 
-📌 설명
+## 📌 설명
 
 id: 일정의 고유 식별자 (자동 증가)
 
@@ -63,7 +72,7 @@ updated_at: 수정일
 
 ---
 
-⚙️ API 명세서
+## ⚙️ API 명세서
 
 | 기능             | Method   | URL                       | 요청 예시                                                                                     | 응답 예시                                                                                                                                                       | 상태코드             |
 | -------------- | -------- | ------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
@@ -77,7 +86,7 @@ updated_at: 수정일
 ---
 
 
-🔒 비밀번호 처리 규칙
+## 🔒 비밀번호 처리 규칙
 
 | 구분              | 규칙                                 |
 | --------------- | ---------------------------------- |
@@ -90,8 +99,10 @@ updated_at: 수정일
 ---
 
 
-🧩 데이터베이스 테이블 스키마
+## 🧩 데이터베이스 테이블 스키마
 
+
+```
 CREATE TABLE scheduler (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -101,12 +112,13 @@ CREATE TABLE scheduler (
     created_at DATETIME(6),
     updated_at DATETIME(6)
 );
+```
 
 
 ---
 
 
-🧠 추가 정보
+### 🧠 추가 정보
 
 | 항목           | 내용                                                        |
 | ------------ | --------------------------------------------------------- |
@@ -120,10 +132,11 @@ CREATE TABLE scheduler (
 ---
 
 
-🧾 예시 시나리오
+### 🧾 예시 시나리오
 
 1️⃣ 일정 생성
 
+```
 POST /scheduler
 {
   "title": "스터디 미팅",
@@ -131,27 +144,31 @@ POST /scheduler
   "writer": "김동욱",
   "password": "1111"
 }
+```
 
 
 2️⃣ 일정 수정
 
+```
 PUT /scheduler/1
 {
   "title": "스터디 미팅(변경)",
   "writer": "김동욱",
   "password": "1111"
 }
+```
 
 
 3️⃣ 작성자 일정 조회
 
+```
 GET /scheduler?writer=김동욱
-
+```
 
 ---
 
 
-📄 작성자 정보
+### 📄 작성자 정보
 
 Author: 김동욱
 
