@@ -39,6 +39,11 @@ schedulerProject/
 
 ## 🧱 ERD (Entity Relationship Diagram)
 
+
+<img width="826" height="1344" alt="entityManagerFactory(EntityManagerFactoryBuilder, PersistenceManagedTypes)" src="https://github.com/user-attachments/assets/535339a5-6264-42bc-b7c2-43396987ac80" />
+
+
+
 ```
 erDiagram
     SCHEDULER {
@@ -51,6 +56,16 @@ erDiagram
         DATETIME updated_at
     }
 ```
+
+
+---
+
+## 🧱 클래스 다이어그램
+
+<img width="2812" height="2804" alt="SchedulerDiagram" src="https://github.com/user-attachments/assets/85c8d3b2-fadd-4119-b904-150dc9837374" />
+
+<img width="4034" height="3788" alt="SchedulerDiagram2" src="https://github.com/user-attachments/assets/b8290f14-797d-4f69-b4e1-0c408eed946c" />
+
 
 ---
 
