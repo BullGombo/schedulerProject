@@ -54,21 +54,28 @@ erDiagram
 
 ---
 
-## 📌 설명
+## 📌 데이터 테이블 컬럼 속성 설명
 
-id: 일정의 고유 식별자 (자동 증가)
 
-title: 일정 제목
+<img width="550" height="387" alt="image" src="https://github.com/user-attachments/assets/543fec35-1c51-4bab-802d-3b5e9b10f99a" />
 
-content: 일정 내용
 
-writer: 작성자명
+<img width="406" height="301" alt="image" src="https://github.com/user-attachments/assets/df38a8d3-b1a9-4983-82db-b15170a811b3" />
 
-password: 수정/삭제 시 필요한 비밀번호 (응답에는 노출되지 않음)
 
-created_at: 작성일
+- id: 일정의 고유 식별자 (자동 증가)
 
-updated_at: 수정일
+- title: 일정 제목
+
+- content: 일정 내용
+
+- writer: 작성자명
+
+- password: 수정/삭제 시 필요한 비밀번호 (응답에는 노출되지 않음)
+
+- created_at: 작성일
+
+- updated_at: 수정일
 
 ---
 
