@@ -10,6 +10,7 @@ API 명세서, ERD 첨부하기
 
 🗂️ 디렉터리 구조
 
+```
 schedulerProject/
 ├── src/
 │   └── main/
@@ -25,7 +26,7 @@ schedulerProject/
 │           └── application.properties
 ├── build.gradle
 └── README.md
-
+```
 
 
 🧱 ERD (Entity Relationship Diagram)
