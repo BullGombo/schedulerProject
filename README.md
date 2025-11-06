@@ -5,6 +5,8 @@
 주요 기술 스택 : Spring Web / Spring Data JPA / Lombok / MySQL
 테스트 툴 : Postman
 
+---
+---
 
 🗂️ 디렉터리 구조
 
@@ -26,6 +28,7 @@ schedulerProject/
 └── README.md
 ```
 
+---
 
 🧱 ERD (Entity Relationship Diagram)
 
@@ -40,6 +43,7 @@ erDiagram
         DATETIME updated_at
     }
 
+---
 
 📌 설명
 
@@ -57,6 +61,7 @@ created_at: 작성일
 
 updated_at: 수정일
 
+---
 
 ⚙️ API 명세서
 
@@ -69,6 +74,8 @@ updated_at: 수정일
 | **일정 수정**      | `PUT`    | `/scheduler/{scheduleId}` | `json { "title": "회의 일정 (수정)", "writer": "김동욱", "password": "1234" } `                    | `json { "id": 1, "title": "회의 일정 (수정)", "writer": "김동욱", "content": "오전 10시 회의", "createdAt": "2025-11-06T15:00:00", "updatedAt": "2025-11-06T16:00:00" } ` | `200 OK`         |
 | **일정 삭제**      | `DELETE` | `/scheduler/{scheduleId}` | `/scheduler/1`                                                                            | (본문 없음)                                                                                                                                                     | `204 No Content` |
 
+---
+
 
 🔒 비밀번호 처리 규칙
 
@@ -78,6 +85,9 @@ updated_at: 수정일
 | **조회 (GET)**    | 응답에서 `password` 필드 제외              |
 | **수정 (PUT)**    | 요청 시 `password` 검증 후 수정 가능         |
 | **삭제 (DELETE)** | 삭제 시에도 `password` 검증 필요 (현재 구현 예정) |
+
+
+---
 
 
 🧩 데이터베이스 테이블 스키마
@@ -93,6 +103,9 @@ CREATE TABLE scheduler (
 );
 
 
+---
+
+
 🧠 추가 정보
 
 | 항목           | 내용                                                        |
@@ -102,6 +115,9 @@ CREATE TABLE scheduler (
 | **MySQL 연결** | DB명: `scheduler`, user: `root`, pw: `1234`                |
 | **Auditing** | `BaseEntity`를 통해 `createdAt`, `updatedAt` 자동 관리           |
 | **패스워드 보호**  | `@JsonProperty(access = WRITE_ONLY)` 으로 응답에서 숨김           |
+
+
+---
 
 
 🧾 예시 시나리오
@@ -130,6 +146,10 @@ PUT /scheduler/1
 3️⃣ 작성자 일정 조회
 
 GET /scheduler?writer=김동욱
+
+
+---
+
 
 📄 작성자 정보
 
