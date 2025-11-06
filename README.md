@@ -1,5 +1,3 @@
-API 명세서, ERD 첨부하기
-
 📘 Scheduler Project API 명세서
 
 프로젝트명 : Scheduler Project
